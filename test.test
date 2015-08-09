@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #!/usr/bin/env python
 
 from random import randint
@@ -94,7 +93,3 @@ def player_turns():
 				print_board(board)
 
 player_turns()
-=======
-probando permisos!
-PAOLO CONIGLIO EL COJE PUTAS DE TODO PICO
->>>>>>> c38f9e1347725089c63a13e416924149314b1179
