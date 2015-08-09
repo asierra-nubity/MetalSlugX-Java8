@@ -1,1 +1,95 @@
-probando permisos!
+#!/usr/bin/env python
+
+from random import randint
+
+board = []
+
+for x in range(5):
+	board.append(["O"] * 5)
+
+def print_board(board):
+	for row in board:
+		print " ".join(row)
+
+print "Let's play Battleship!"
+print_board(board)
+
+def random_row(board):
+	return randint(0, len(board) - 1)
+
+def random_col(board):
+	return randint(0, len(board[0]) - 1)
+
+ship_row = random_row(board)
+ship_col = random_col(board)
+
+
+# def player_input(player_in):
+#     input_row = raw_input("Guess Row:")
+#     input_col = raw_input("Guess Col:")
+
+#     if input_row.isdigit() == False or input_col.isdigit() == False:
+#         print "Esas no son coordenadas numericas!"
+#     elif input_row == "" or input_col == "":
+#         print "Te faltaron coordenadas!"
+#     else:
+#         player_row = int(input_row)
+#         player_col = int(input_col)
+def player_input():
+
+	bandera = True
+
+	while (bandera):
+		player_in = raw_input("")
+		if player_in.isdigit() == True and player_in != "":
+			bandera = False
+		else:
+			print "MANKOOOOO"
+
+	return player_in
+
+"""
+	if player_in.isdigit() == False or player_in == "":
+		print "Esas no son coordenadas validas!"
+		return -1
+	else:
+		return player_in
+
+    if player_in.isdigit() == False:
+        print "Esas no son coordenadas numericas!"
+    elif player_in == "": 
+        print "Te faltaron coordenadas!"
+    else
+       return player_in
+"""
+# print "Paolo Ingresa una Fila: "
+# kaka = player_input()
+
+
+def player_turns():
+	print "Ship row:", ship_row, "| Ship col:", ship_col
+
+	for turn in range(4):
+		print "Turn", turn + 1
+
+		print "Ingrese una Fila"
+		player_row = int(player_input())
+		print "Ingrese una Columna"
+		player_col = int(player_input())
+
+		if player_row == ship_row and player_col== ship_col:
+			print "Congratulations! You sunk my battleship!"
+			break
+		else:
+			if turn == 3:
+				print "Game Over"
+			elif (player_row < 0 or player_row > 4) or (player_col < 0 or player_col > 4):
+				print "Oops, that's not even in the ocean."
+			elif (board[player_row][player_col] == "X"):
+				print "You guessed that one already."
+			else:
+				print "You missed my battleship!"
+				board[player_row][player_col] = "X"
+				print_board(board)
+
+player_turns()
