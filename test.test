@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#WALTER DESPERTATEEE
 from random import randint
 
 board = []
