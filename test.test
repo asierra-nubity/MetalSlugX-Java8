@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+#Walter coge putos
 from random import randint
 
 board = []
