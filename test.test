@@ -1,6 +1,6 @@
 #!/usr/bin/env python
+##Ahi va chavela
 from random import randint
-
 board = []
 
 for x in range(5):
